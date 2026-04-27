@@ -34,9 +34,15 @@ Weather *addNode(int x, Weather *head){
 
 Weather *sortWeather(Weather *head){ //Mengambil referensi dari geeksforgeeks : https://www.geeksforgeeks.org/dsa/c-program-bubble-sort-linked-list/
     int swapped, i;
-    struct Weather *ptr1;
+    struct Weather *ptr1 = head;
     struct Weather *ptr2 = NULL;
-    do
+    if (ptr1->next == NULL)
+    {
+        return head;
+    }
+    else
+    {
+        do
     {
         swapped = 0;
         ptr1 = head;
@@ -54,6 +60,8 @@ Weather *sortWeather(Weather *head){ //Mengambil referensi dari geeksforgeeks : 
         ptr2 = ptr1;
     } while (swapped);
     return head;
+    }
+    
 }
 
 void *findMedian(Weather *head){
@@ -70,7 +78,7 @@ void *findMedian(Weather *head){
         if (count%2 == 0)
         {
             currentNode = head;
-            for (int i = 0; i <= count/2 + 1; i++)
+            for (int i = 0; i <= count/2; i++)
             {
                 if (i == count/2 - 1)
                 {
@@ -91,7 +99,14 @@ void *findMedian(Weather *head){
             {
                 currentNode = currentNode->next;
             }
-            median = currentNode->next->x;
+            if (count > 1)
+            {
+                median = currentNode->next->x;
+            }
+            else
+            {
+                median = currentNode->x;
+            }
         }
         currentNode = head;
         printf(" SORTED ");
