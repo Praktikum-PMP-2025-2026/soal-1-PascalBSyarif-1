@@ -101,7 +101,15 @@ void *findMedian(Weather *head){
             currentNode = currentNode->next;
         }
         printf("%d", currentNode->x);
-        printf(" MEDIAN %.2f", median);   
+        if (count%2 == 0)
+        {
+            printf(" MEDIAN %.2f", median);
+        }
+        else
+        {
+            printf(" MEDIAN %.0f", median);
+        }
+           
     }
 
 void *printArray(Weather *head){
