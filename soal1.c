@@ -94,14 +94,14 @@ void *findMedian(Weather *head){
             median = currentNode->next->x;
         }
         currentNode = head;
-        printf("SORTED ");
+        printf(" SORTED ");
         while (currentNode->next != NULL)
         {
             printf("%d ", currentNode->x);
             currentNode = currentNode->next;
         }
         printf("%d", currentNode->x);
-        printf("MEDIAN %.2f", median);   
+        printf(" MEDIAN %.2f", median);   
     }
 
 void *printArray(Weather *head){
